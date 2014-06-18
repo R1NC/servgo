@@ -20,7 +20,6 @@ func searchMusic(writer http.ResponseWriter, request *http.Request) {
 }
 
 func httpGet(url string, writer http.ResponseWriter) {
-	fmt.Println(url)
 	response, err := http.Get(url)
 	checkErr(err)
 	defer response.Body.Close()
@@ -39,6 +38,7 @@ func checkErr(err error) {
 type MyHttpHandler struct{}
 
 func (handler *MyHttpHandler) ServeHTTP(writer http.ResponseWriter, request *http.Request) {
+	fmt.Printf("Request: %s From: %s\n", request.URL, request.RemoteAddr)	
 	switch request.URL.Path {
 		case "/api/music/search":
 			searchMusic(writer, request)
