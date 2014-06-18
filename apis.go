@@ -1,4 +1,4 @@
-package main
+package go_web_api
 
 import (
 	"fmt"
@@ -8,7 +8,9 @@ import (
 
 const URL_ROOT = "https://api.douban.com/v2/"
 
-func searchBook(writer http.ResponseWriter, request *http.Request) {
+type API struct{}
+
+func (api *API) SearchBook(writer http.ResponseWriter, request *http.Request) {
         params := request.URL.Query()
         q := params.Get("q")
         tag := params.Get("tag")
@@ -18,7 +20,7 @@ func searchBook(writer http.ResponseWriter, request *http.Request) {
         httpGet(url, writer)
 }
 
-func searchMovie(writer http.ResponseWriter, request *http.Request) {
+func (api *API) SearchMovie(writer http.ResponseWriter, request *http.Request) {
 	params := request.URL.Query()
 	q := params.Get("q")
 	tag := params.Get("tag")
@@ -28,7 +30,7 @@ func searchMovie(writer http.ResponseWriter, request *http.Request) {
 	httpGet(url, writer)
 }
 
-func searchMusic(writer http.ResponseWriter, request *http.Request) {
+func (api *API) SearchMusic(writer http.ResponseWriter, request *http.Request) {
         params := request.URL.Query()
         q := params.Get("q")
         tag := params.Get("tag")
@@ -40,36 +42,9 @@ func searchMusic(writer http.ResponseWriter, request *http.Request) {
 
 func httpGet(url string, writer http.ResponseWriter) {
 	response, err := http.Get(url)
-	checkErr(err)
+	CheckErr(err)
 	defer response.Body.Close()	
 	contents, err := ioutil.ReadAll(response.Body)
-	checkErr(err)
+	CheckErr(err)
 	fmt.Fprintf(writer, string(contents))
-}
-
-func checkErr(err error) {
-	if err != nil {
-		panic(err)
-	}
-}
-
-type MyHttpHandler struct{}
-
-func (handler *MyHttpHandler) ServeHTTP(writer http.ResponseWriter, request *http.Request) {
-	fmt.Printf("Request: %s From: %s\n", request.URL, request.RemoteAddr)	
-	switch request.URL.Path {
-		case "/api/book/search":
-			searchBook(writer, request)
-		case "/api/movie/search":
-			searchMovie(writer, request)
-		case "/api/music/search":
-                        searchMusic(writer, request)
-		default:
-			http.NotFound(writer, request)
-	}
-}
-
-func main() {
-	err := http.ListenAndServe(":32768", &MyHttpHandler{})
-	checkErr(err)
 }
