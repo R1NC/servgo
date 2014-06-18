@@ -1,6 +1,7 @@
 Usage
 ==========
-
+* Git clone this project into $GOPATH/src;
+* Create a .go file to start service:
 ```
 package main {
 	
