@@ -1,0 +1,53 @@
+package main
+
+import (
+	"fmt"
+	"net/http"
+	"io/ioutil"
+)
+
+const URL_ROOT = "https://api.douban.com/v2/"
+
+func searchMusic(writer http.ResponseWriter, request *http.Request) {
+	params := request.URL.Query()
+	q := params.Get("q")
+	tag := params.Get("tag")
+	start := params.Get("start")
+	count := params.Get("count")
+
+	url := URL_ROOT + "music/search" + "?q=" + q + "&tag=" + tag + "&start=" + start + "&count=" + count 
+	httpGet(url, writer)
+}
+
+func httpGet(url string, writer http.ResponseWriter) {
+	fmt.Println(url)
+	response, err := http.Get(url)
+	checkErr(err)
+	defer response.Body.Close()
+	
+	contents, err := ioutil.ReadAll(response.Body)
+	checkErr(err)
+	fmt.Fprintf(writer, string(contents))
+}
+
+func checkErr(err error) {
+	if err != nil {
+		panic(err)
+	}
+}
+
+type MyHttpHandler struct{}
+
+func (handler *MyHttpHandler) ServeHTTP(writer http.ResponseWriter, request *http.Request) {
+	switch request.URL.Path {
+		case "/api/music/search":
+			searchMusic(writer, request)
+		default:
+			http.NotFound(writer, request)
+	}
+}
+
+func main() {
+	err := http.ListenAndServe(":19199", &MyHttpHandler{})
+	checkErr(err)
+}
