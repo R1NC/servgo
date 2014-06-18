@@ -1,4 +1,4 @@
-package go_web_api
+package go_web_service
 
 func CheckErr(err error) {
 	if err != nil {

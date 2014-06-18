@@ -1,4 +1,4 @@
-package go_web_api
+package go_web_service
 
 import (
 	"fmt"
