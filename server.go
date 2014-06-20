@@ -3,6 +3,7 @@ package go_web_service
 import (
 	"fmt"
 	"net/http"
+	"strconv"
 )
 
 type handler struct{
@@ -17,13 +18,13 @@ func (h *handler) ServeHTTP(writer http.ResponseWriter, request *http.Request) {
 		case "/api/movie/search":
 			h.api.SearchMovie(writer, request)
 		case "/api/music/search":
-                        h.api.SearchMusic(writer, request)
+			h.api.SearchMusic(writer, request)
 		default:
 			http.NotFound(writer, request)
 	}
 }
 
-func Start() {
-	err := http.ListenAndServe(":32768", &handler{ &API{} })
+func Start(port int) {
+	err := http.ListenAndServe(":" + strconv.Itoa(port), &handler{ &API{} })
 	CheckErr(err)
 }
