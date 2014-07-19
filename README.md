@@ -21,4 +21,4 @@ func main() {
 }
 ```
 
-* <CODE>go build api.go</CODE>.
+* <CODE>go run api.go</CODE>.
