@@ -9,15 +9,13 @@ Usage
 * Git clone this project into $GOPATH/src;
 * Create a .go file to start service:
 ```go
-package main {
+package main
 	
-	import (
-		"go_web_service"
-	)
+import (
+	"go_web_service"
+)
 	
-	func main() {
-		go_web_service.Start(8888)
-	}
-		
+func main() {
+	go_web_service.Start(8888)
 }
 ```
