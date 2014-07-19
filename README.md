@@ -6,8 +6,8 @@ Web services written in Golang.
 Usage
 ==========
 
-* Git clone this project into $GOPATH/src;
-* Create a .go file to start service:
+* <CODE>git clone</CODE> this project into <CODE>$GOPATH/src</CODE>;
+* Create a <CODE>api.go</CODE> file:
 ```go
 package main
 	
@@ -19,3 +19,4 @@ func main() {
 	go_web_service.Start(8888)
 }
 ```
+* <CODE>go build api.go</CODE>.
