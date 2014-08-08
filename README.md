@@ -17,8 +17,15 @@ import (
 )
 	
 func main() {
-	go_web_service.Start(8888)
+	go_web_service.Run(8888)
 }
 ```
 
-* <CODE>go run api.go</CODE>.
+* <CODE>go run api.go</CODE>;
+
+* Client request:
+```
+http://localhost:8888/api/book/search?q=abc&tag=&start=0&count=20
+http://localhost:8888/api/movie/search?q=abc&tag=&start=0&count=20
+http://localhost:8888/api/music/search?q=abc&tag=&start=0&count=20
+``` 
