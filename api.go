@@ -6,7 +6,9 @@ import (
 	"io/ioutil"
 )
 
-const url_douban_api = "https://api.douban.com/v2/"
+const (
+	url_douban_api = "https://api.douban.com/v2/"
+)
 
 type Api struct{}
 
