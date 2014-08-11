@@ -1,4 +1,4 @@
-package go_web_service
+package servgo
 
 import (
 	"fmt"
