@@ -1,4 +1,4 @@
-go_web_service
+servgo
 ===========
 
 Web services written in Golang.
