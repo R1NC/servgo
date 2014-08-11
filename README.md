@@ -26,7 +26,7 @@ func main() {
 Send request
 ==========
 ```
-http://localhost:8888/api/book/search?q=abc&tag=&start=0&count=20
-http://localhost:8888/api/movie/search?q=abc&tag=&start=0&count=20
-http://localhost:8888/api/music/search?q=abc&tag=&start=0&count=20
+http://localhost:8888/api/book/search?q=abc&tag=def&start=0&count=20
+http://localhost:8888/api/movie/search?q=abc&tag=def&start=0&count=20
+http://localhost:8888/api/music/search?q=abc&tag=def&start=0&count=20
 ``` 
