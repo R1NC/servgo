@@ -1,4 +1,4 @@
-package go_web_service
+package servgo
 
 func CheckErr(err error) {
 	if err != nil {
