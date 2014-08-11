@@ -3,7 +3,7 @@ servgo
 
 Web services written in Golang.
 
-Usage of Server
+Deploy service
 ==========
 
 * <CODE>git clone</CODE> this project into <CODE>$GOPATH/src/github.com/RincLiu/servgo</CODE>;
@@ -23,7 +23,7 @@ func main() {
 
 * <CODE>go run test.go</CODE>;
 
-Usage of Client
+Send request
 ==========
 ```
 http://localhost:8888/api/book/search?q=abc&tag=&start=0&count=20
