@@ -6,18 +6,18 @@ Web services written in Golang.
 Usage of Server
 ==========
 
-* <CODE>git clone</CODE> this project into <CODE>$GOPATH/src</CODE>;
+* <CODE>git clone</CODE> this project into <CODE>$GOPATH/src/github.com/RincLiu/servgo</CODE>;
 
 * Create a <CODE>test.go</CODE> file:
 ```go
 package main
 	
 import (
-	"go_web_service"
+	"github.com/RincLiu/servgo"
 )
 	
 func main() {
-	go_web_service.Run(8888)
+	servgo.Run(8888)
 }
 ```
 
