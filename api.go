@@ -6,7 +6,10 @@ import (
 	"io/ioutil"
 )
 
-const url_douban_api = "https://api.douban.com/v2/"
+const (
+	url_douban_api = "https://api.douban.com/v2/"
+	url_cn_weather = "http://m.weather.com.cn/data/"
+)
 
 type Api struct{}
 
@@ -37,6 +40,13 @@ func (api *Api) SearchMusic(writer http.ResponseWriter, request *http.Request) {
 	start := params.Get("start")
 	count := params.Get("count")
 	url := url_douban_api + "music/search?q=" + q + "&tag=" + tag + "&start=" + start + "&count=" + count
+	writeFromHttpGet(url, writer)
+}
+
+func (api *Api) QueryWeather(writer http.ResponseWriter, request *http.Request) {
+	params := request.URL.Query()
+	city := params.Get("city")
+	url := url_cn_weather + city + ".html"
 	writeFromHttpGet(url, writer)
 }
 
