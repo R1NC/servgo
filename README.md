@@ -6,7 +6,7 @@ Web services written in Golang.
 Deploy service
 ==========
 
-* <CODE>git clone</CODE> this project into <CODE>$GOPATH/src/github.com/RincLiu/servgo</CODE>;
+* <CODE>go get github.com/RincLiu/servgo</CODE>;
 
 * Create a <CODE>test.go</CODE> file:
 ```go
