@@ -45,8 +45,10 @@ func (api *Api) SearchMusic(writer http.ResponseWriter, request *http.Request) {
 
 func (api *Api) QueryWeather(writer http.ResponseWriter, request *http.Request) {
 	params := request.URL.Query()
-	city := params.Get("city")
-	url := url_cn_weather + city + ".html"
+	cityName := params.Get("city")
+	rds := &Redis{}
+	cityId := rds.QueryCityIdByName(cityName)
+	url := url_cn_weather + cityId + ".html"
 	writeFromHttpGet(url, writer)
 }
 

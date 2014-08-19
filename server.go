@@ -19,7 +19,7 @@ func (h *handler) ServeHTTP(writer http.ResponseWriter, request *http.Request) {
 			h.api.SearchMovie(writer, request)
 		case "/api/music/search":
 			h.api.SearchMusic(writer, request)
-		case "api/weather/query":
+		case "/api/weather/query":
 			h.api.QueryWeather(writer, request)
 		default:
 			http.NotFound(writer, request)
