@@ -54,9 +54,9 @@ func (api *Api) QueryWeather(writer http.ResponseWriter, request *http.Request) 
 
 func writeFromHttpGet(url string, writer http.ResponseWriter) {
 	response, err := http.Get(url)
-	CheckErr(err)
+	checkErr(err)
 	defer response.Body.Close()	
 	contents, err := ioutil.ReadAll(response.Body)
-	CheckErr(err)
+	checkErr(err)
 	fmt.Fprintf(writer, string(contents))
 }

@@ -28,5 +28,5 @@ func (h *handler) ServeHTTP(writer http.ResponseWriter, request *http.Request) {
 
 func Run(port int) {
 	err := http.ListenAndServe(":" + strconv.Itoa(port), &handler{ &Api{} })
-	CheckErr(err)
+	checkErr(err)
 }
