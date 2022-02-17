@@ -6,7 +6,7 @@ Web services written in Golang.
 Deploy service
 ==========
 
-* <CODE>go get github.com/RincLiu/servgo</CODE>;
+* <CODE>go get github.com/R1NC/servgo</CODE>;
 
 * Create a <CODE>test.go</CODE> file:
 ```go
