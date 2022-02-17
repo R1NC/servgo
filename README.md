@@ -6,14 +6,14 @@ Web services written in Golang.
 Deploy service
 ==========
 
-* <CODE>go get github.com/R1NC/servgo</CODE>;
+* `go get github.com/R1NC/servgo`;
 
-* Create a <CODE>test.go</CODE> file:
+* Create a `test.go` file:
 ```go
 package main
 	
 import (
-	"github.com/RincLiu/servgo"
+	"github.com/R1NC/servgo"
 )
 	
 func main() {
@@ -21,7 +21,7 @@ func main() {
 }
 ```
 
-* <CODE>go run test.go</CODE>;
+* `go run test.go`;
 
 Send request
 ==========
